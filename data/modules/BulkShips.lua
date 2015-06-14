@@ -27,8 +27,8 @@ local spawnShips = function ()
 	local shipdefs = utils.build_array(utils.filter(function (k,def) return def.tag == 'STATIC_SHIP' end, pairs(ShipDef)))
 	if #shipdefs == 0 then return end
 
-	-- one ship per three billion, min 1, max 2*num of stations
-	local num_bulk_ships = math.min(#stations*2, math.floor((math.ceil(population)+2)/3))
+	-- two ships per billion, min 2, max 3*num of stations
+	local num_bulk_ships = math.min(#stations*3, math.floor((math.ceil(population)+1)*2))
 
 	for i=1, num_bulk_ships do
 		local station = stations[Engine.rand:Integer(1,#stations)]
